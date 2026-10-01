@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set-7 | Anish Singha</title>
+<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems, tools and shipped games on Steam and Google Play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <p class="name">Anish<br>Singha</p>
+  <p class="role">Game Programmer</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <span class="nav-group-label">Projects</span>
+    <div class="sub">
+        <a href="set-7.html" class="active">Set-7</a>
+        <a href="carrom-reloaded.html">Carrom Reloaded</a>
+        <a href="arrows-zen-puzzle.html">Arrows: Zen Puzzle</a>
+        <a href="the-long-way-round.html">The Long Way Round</a>
+        <a href="bubble-gravity.html">Bubble Gravity</a>
+    </div>
+    <a href="resume.html">Resume</a>
+  </nav>
+  <div class="contact"><a href="mailto:anishsingha28@gmail.com">anishsingha28@gmail.com</a></div>
+</aside>
+<main>
+  <img class="banner" src="https://static.wixstatic.com/media/f1ab6a_d77c816a69af4f1c91924c48891f2d7b~mv2.png" alt="Set-7 banner">
+  <div class="summary">
+    <div>
+      <p class="label">Game Summary</p>
+      <p>Set-7 is a sequence-building roguelike where the deck is your life. Players must manage a 52-card resource to hit a self-imposed target. The game centers on a high-stakes decision at the end of every successful round: Secure the profit or risk it all for a higher multiplier.</p>
+    </div>
+    <img class="feature" src="https://static.wixstatic.com/media/f1ab6a_d1ccf20b8f4045c1b793364f78fecd2c~mv2.gif" alt="Set-7">
+  </div>
+  <div class="media-strip "><img src="https://static.wixstatic.com/media/f1ab6a_99d82d8929d74d7a9b20ef24bc123499~mv2.gif" alt="Set-7 gameplay" loading="lazy"><img src="https://static.wixstatic.com/media/f1ab6a_09319afb7b784aa6b87b60d188825b7a~mv2.gif" alt="Set-7 gameplay" loading="lazy"><img src="https://static.wixstatic.com/media/f1ab6a_5d992fddb9c44c01808ae6ebf4ba1385~mv2.gif" alt="Set-7 gameplay" loading="lazy"></div>
+  <h1 class="game-title">Set-7</h1>
+  <p class="label">Code Architecture</p>
+  <div class="architecture">
+    <ul>
+      <li><b>Data-Driven Design:</b> Using enums and configurable data instead of hardcoded logic allows for rapid prototyping and balancing without rewriting the core game loop.</li>
+      <li><b>Decoupled Architecture:</b> Separating math and rules from UI and animations allows systems to calculate instantly in the background (perfect for predictive UI) without being slowed down by visual timings.</li>
+      <li><b>Asynchronous State Management:</b> Locking inputs during distinct execution phases prevents game-breaking bugs, like double-clicks or race conditions, ensuring a stable flow.</li>
+      <li><b>Optimized Data Structures:</b> Utilizing efficient structures (like O(1) HashSets) for rule validation guarantees maximum performance and prevents frame drops as complexity scales.</li>
+      <li><b>Failsafe Execution:</b> Implementing early-exit conditions for invalid player actions immediately and safely resets the game state, saving processing power and preventing cascading errors.</li>
+    </ul>
+  </div>
+  <p class="meta">Role : Game Programmer | Genre : Casual | Platform : Mobile | Time : 3 months | Engine : Unity 6</p>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arrows: Zen Puzzle | Anish Singha</title>
+<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems, tools and shipped games on Steam and Google Play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <p class="name">Anish<br>Singha</p>
+  <p class="role">Game Programmer</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <span class="nav-group-label">Projects</span>
+    <div class="sub">
+        <a href="set-7.html">Set-7</a>
+        <a href="carrom-reloaded.html">Carrom Reloaded</a>
+        <a href="arrows-zen-puzzle.html" class="active">Arrows: Zen Puzzle</a>
+        <a href="the-long-way-round.html">The Long Way Round</a>
+        <a href="bubble-gravity.html">Bubble Gravity</a>
+    </div>
+    <a href="resume.html">Resume</a>
+  </nav>
+  <div class="contact"><a href="mailto:anishsingha28@gmail.com">anishsingha28@gmail.com</a></div>
+</aside>
+<main>
+  <div class="video"><iframe src="https://www.youtube.com/embed/oV_zKasiUOQ" title="Arrows: Zen Puzzle trailer" allowfullscreen></iframe></div>
+  <div class="summary">
+    <div>
+      <p class="label">Game Summary</p>
+      <p>Arrows: Zen Puzzle is a meditative puzzle game where players navigate intricate, shifting grids by carefully orchestrating the movement of arrows. Every move plays a note tuned to the backing track, so solving a level builds into a melody. Released on Google Play.</p>
+    </div>
+    <img class="feature phone" src="https://play-lh.googleusercontent.com/zQtDZ_4qAdUF8sZp37XnxVtpjZ6GTa9t8e3VWW82_GIs4Q7XB0joc90m7Af9m92NFjr0TAKne4ePJfR5J8AN=h900" alt="Arrows: Zen Puzzle">
+  </div>
+  <div class="media-strip phones"><img src="https://play-lh.googleusercontent.com/EifE-4Ii6IIx_hZWo9ClqXYDCPmf-i0jC_F2myuN45hHF_jqSNSZBkQb1jAvLMgPLnB4QtDHl3JbuC0pPROjnA=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"><img src="https://play-lh.googleusercontent.com/gis7GzwsTDqb98ucn_xNQVz9wQ7b-6WgFQNh_qaHbBF-9VtMhdkcG7CpmAoBdtWPOimL3JK0X3dC2Ea3DS2K=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"><img src="https://play-lh.googleusercontent.com/W9frozYc8gpY9qBms7q62f1uHVeNNuR4eNjaleVRiBDiJtNi9KOxbmvLCCIv7-o_S9-mB0kYKGuV6IYUS7if09I=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"><img src="https://play-lh.googleusercontent.com/gNDSvOIWXUbOoKCLJRaUxl9qjIf3X6zfNSIezUW1JAA8awouJP8dOPKYp5rq_HgtvKdPd0DkEmPXEUCavw4T9Q=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"></div>
+  <h1 class="game-title">Arrows: Zen Puzzle</h1>
+  <p class="label">Code Architecture</p>
+  <div class="architecture">
+    <ul>
+      <li><b>Solvable by Construction:</b> Levels are carved so that every arrow has a guaranteed escape order at the moment it is placed. Solvability is built in rather than checked afterwards with an expensive search.</li>
+      <li><b>Time-Budgeted Generation:</b> The generator carves several candidate boards within a fixed attempt and time budget, scores each one for difficulty and keeps the hardest. Large 30x30 boards that used to freeze the editor for 30+ minutes now generate reliably.</li>
+      <li><b>Difficulty Without Shortcuts:</b> Every arrow keeps at least one body segment and the generator rewards inward and outward turns, so levels stay hard instead of collapsing into arrows that all point the same way.</li>
+      <li><b>Extensible Pattern System:</b> Random, Spiral and Wave layouts share one pipeline: plan lengths, slice into segments, finalize. A new pattern needs one enum case and one method, and it inherits the solvability guarantee automatically.</li>
+      <li><b>Configurable Arrow Sizing:</b> A shared length planner sizes arrows along a Fibonacci curve or fixed lengths, with overrides such as a maximum length for the random arrows inside a Spiral's outer layers.</li>
+      <li><b>Regression-Tested Tooling:</b> Generator changes were verified against a 160-case regression suite, including extreme aspect ratios like 50x4 and 4x50 boards.</li>
+    </ul>
+  </div>
+  <p class="meta">Role : Game Programmer | Genre : Puzzle | Platform : Mobile | Engine : Unity</p>
+  <div class="store-link"><a class="btn" href="https://play.google.com/store/apps/details?id=arrowzen.ggg" target="_blank" rel="noopener">Get it on Google Play</a></div>
+
+</main>
+</body>
+</html>

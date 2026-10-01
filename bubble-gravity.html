@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bubble Gravity | Anish Singha</title>
+<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems, tools and shipped games on Steam and Google Play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <p class="name">Anish<br>Singha</p>
+  <p class="role">Game Programmer</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <span class="nav-group-label">Projects</span>
+    <div class="sub">
+        <a href="set-7.html">Set-7</a>
+        <a href="carrom-reloaded.html">Carrom Reloaded</a>
+        <a href="arrows-zen-puzzle.html">Arrows: Zen Puzzle</a>
+        <a href="the-long-way-round.html">The Long Way Round</a>
+        <a href="bubble-gravity.html" class="active">Bubble Gravity</a>
+    </div>
+    <a href="resume.html">Resume</a>
+  </nav>
+  <div class="contact"><a href="mailto:anishsingha28@gmail.com">anishsingha28@gmail.com</a></div>
+</aside>
+<main>
+  <div class="summary">
+    <div>
+      <p class="label">Game Summary</p>
+      <p>Bubble Gravity is a bubble shooter set in an alchemist's workshop, built around one new idea: gravity zones that pull every shot left, right, up or down. Players bank shots through the zones to match colours, collect gems and clear the board, with five power-ups and 30 levels that ramp from tutorial to expert.</p>
+    </div>
+    <img class="feature phone" src="images/bg-title.png" alt="Bubble Gravity">
+  </div>
+  <div class="media-strip phones"><img src="images/bg-1.png" alt="Bubble Gravity gameplay" loading="lazy"><img src="images/bg-2.png" alt="Bubble Gravity gameplay" loading="lazy"><img src="images/bg-3.png" alt="Bubble Gravity gameplay" loading="lazy"></div>
+  <h1 class="game-title">Bubble Gravity</h1>
+  <p class="label">Code Architecture</p>
+  <div class="architecture">
+    <ul>
+      <li><b>One Shared Physics Simulation:</b> The real shot, the curved aim line, the Aim Hint power-up and the balancing bot all run the same gravity-zone simulation, so the aim preview always matches what the shot actually does.</li>
+      <li><b>Bot-Driven Balancing:</b> A bot plays every level 30+ times, reports a win rate, and automatically sets the shot count and star score thresholds. The 30 levels ramp from about a 97% bot win rate down to 53%.</li>
+      <li><b>Pluggable Power-Ups:</b> Each power-up is a ScriptableObject asset. New effects implement an IPowerUpEffectHandler interface and appear in the shop and in-level tray automatically.</li>
+      <li><b>Custom Level Editor:</b> An editor window with colour brushes, flood fill, mirroring, gravity-zone editing, live test shots and batch generation across 12 shapes, 6 colouring styles and 11 zone presets.</li>
+      <li><b>SDK-Safe Builds:</b> Scripting defines detect LevelPlay ads, Cloud Save and Google Play Games. Without them, ads are simulated and saves stay offline, so the project always compiles.</li>
+      <li><b>Tested Core Rules:</b> The matching and dropping rules are covered by 20 unit tests, and all scripts compile cleanly with SDKs on, off, and alongside the editor tools.</li>
+    </ul>
+  </div>
+  <p class="meta">Role : Game Programmer | Genre : Puzzle / Bubble Shooter | Platform : Mobile | Engine : Unity</p>
+
+</main>
+</body>
+</html>
