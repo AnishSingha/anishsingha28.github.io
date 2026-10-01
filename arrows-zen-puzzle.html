@@ -4,55 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arrows: Zen Puzzle | Anish Singha</title>
-<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems, tools and shipped games on Steam and Google Play.">
+<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems and shipped games on Steam and Google Play.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<aside class="sidebar">
-  <p class="name">Anish<br>Singha</p>
-  <p class="role">Game Programmer</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <span class="nav-group-label">Projects</span>
-    <div class="sub">
-        <a href="set-7.html">Set-7</a>
-        <a href="carrom-reloaded.html">Carrom Reloaded</a>
-        <a href="arrows-zen-puzzle.html" class="active">Arrows: Zen Puzzle</a>
-        <a href="the-long-way-round.html">The Long Way Round</a>
-        <a href="bubble-gravity.html">Bubble Gravity</a>
-    </div>
-    <a href="resume.html">Resume</a>
-  </nav>
-  <div class="contact"><a href="mailto:anishsingha28@gmail.com">anishsingha28@gmail.com</a></div>
-</aside>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="name">ANISH SINGHA</span><span class="role">Game Programmer</span></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <div class="dd active" tabindex="0"><span>Projects</span>
+        <div class="menu">
+          <a href="set-7.html">Set-7</a>
+          <a href="carrom-reloaded.html">CarromReloaded</a>
+          <a href="arrows-zen-puzzle.html">Arrows: Zen Puzzle</a>
+          <a href="the-long-way-round.html">The Long Way Round</a>
+          <a href="bubble-gravity.html">Bubble Gravity</a>
+        </div>
+      </div>
+      <a href="resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
 <main>
-  <div class="video"><iframe src="https://www.youtube.com/embed/oV_zKasiUOQ" title="Arrows: Zen Puzzle trailer" allowfullscreen></iframe></div>
-  <div class="summary">
-    <div>
-      <p class="label">Game Summary</p>
-      <p>Arrows: Zen Puzzle is a meditative puzzle game where players navigate intricate, shifting grids by carefully orchestrating the movement of arrows. Every move plays a note tuned to the backing track, so solving a level builds into a melody. Released on Google Play.</p>
+  <section class="panel">
+    <h1 class="outline-title page-title">ARROWS: ZEN PUZZLE</h1>
+    <div class="media bordered"><iframe src="https://www.youtube.com/embed/oV_zKasiUOQ" title="Arrows: Zen Puzzle trailer" allowfullscreen></iframe></div>
+    <hr class="rule">
+    <p class="meta"><b>Role :</b> Game Programmer | <b>Genre :</b> Puzzle | <b>Platform :</b> Mobile | <b>Engine :</b> Unity</p>
+  </section>
+  <section class="panel">
+    <div class="summary">
+      <h4>GAME SUMMARY</h4>
+      <p><b>Arrows: Zen Puzzle</b> is a meditative puzzle game where players navigate intricate, shifting grids by carefully orchestrating the movement of arrows. Every move plays a note tuned to the backing track, so solving a level builds into a melody. Released on Google Play.</p>
     </div>
-    <img class="feature phone" src="https://play-lh.googleusercontent.com/zQtDZ_4qAdUF8sZp37XnxVtpjZ6GTa9t8e3VWW82_GIs4Q7XB0joc90m7Af9m92NFjr0TAKne4ePJfR5J8AN=h900" alt="Arrows: Zen Puzzle">
-  </div>
-  <div class="media-strip phones"><img src="https://play-lh.googleusercontent.com/EifE-4Ii6IIx_hZWo9ClqXYDCPmf-i0jC_F2myuN45hHF_jqSNSZBkQb1jAvLMgPLnB4QtDHl3JbuC0pPROjnA=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"><img src="https://play-lh.googleusercontent.com/gis7GzwsTDqb98ucn_xNQVz9wQ7b-6WgFQNh_qaHbBF-9VtMhdkcG7CpmAoBdtWPOimL3JK0X3dC2Ea3DS2K=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"><img src="https://play-lh.googleusercontent.com/W9frozYc8gpY9qBms7q62f1uHVeNNuR4eNjaleVRiBDiJtNi9KOxbmvLCCIv7-o_S9-mB0kYKGuV6IYUS7if09I=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"><img src="https://play-lh.googleusercontent.com/gNDSvOIWXUbOoKCLJRaUxl9qjIf3X6zfNSIezUW1JAA8awouJP8dOPKYp5rq_HgtvKdPd0DkEmPXEUCavw4T9Q=h900" alt="Arrows: Zen Puzzle gameplay" loading="lazy"></div>
-  <h1 class="game-title">Arrows: Zen Puzzle</h1>
-  <p class="label">Code Architecture</p>
-  <div class="architecture">
-    <ul>
-      <li><b>Solvable by Construction:</b> Levels are carved so that every arrow has a guaranteed escape order at the moment it is placed. Solvability is built in rather than checked afterwards with an expensive search.</li>
-      <li><b>Time-Budgeted Generation:</b> The generator carves several candidate boards within a fixed attempt and time budget, scores each one for difficulty and keeps the hardest. Large 30x30 boards that used to freeze the editor for 30+ minutes now generate reliably.</li>
-      <li><b>Difficulty Without Shortcuts:</b> Every arrow keeps at least one body segment and the generator rewards inward and outward turns, so levels stay hard instead of collapsing into arrows that all point the same way.</li>
-      <li><b>Extensible Pattern System:</b> Random, Spiral and Wave layouts share one pipeline: plan lengths, slice into segments, finalize. A new pattern needs one enum case and one method, and it inherits the solvability guarantee automatically.</li>
-      <li><b>Configurable Arrow Sizing:</b> A shared length planner sizes arrows along a Fibonacci curve or fixed lengths, with overrides such as a maximum length for the random arrows inside a Spiral's outer layers.</li>
-      <li><b>Regression-Tested Tooling:</b> Generator changes were verified against a 160-case regression suite, including extreme aspect ratios like 50x4 and 4x50 boards.</li>
-    </ul>
-  </div>
-  <p class="meta">Role : Game Programmer | Genre : Puzzle | Platform : Mobile | Engine : Unity</p>
-  <div class="store-link"><a class="btn" href="https://play.google.com/store/apps/details?id=arrowzen.ggg" target="_blank" rel="noopener">Get it on Google Play</a></div>
+    <div class="phones"><img src="https://play-lh.googleusercontent.com/zQtDZ_4qAdUF8sZp37XnxVtpjZ6GTa9t8e3VWW82_GIs4Q7XB0joc90m7Af9m92NFjr0TAKne4ePJfR5J8AN=h1000" alt="Gameplay screenshot" loading="lazy" data-gallery="arrowsp" data-index="0" style="cursor:zoom-in"><img src="https://play-lh.googleusercontent.com/EifE-4Ii6IIx_hZWo9ClqXYDCPmf-i0jC_F2myuN45hHF_jqSNSZBkQb1jAvLMgPLnB4QtDHl3JbuC0pPROjnA=h1000" alt="Gameplay screenshot" loading="lazy" data-gallery="arrowsp" data-index="1" style="cursor:zoom-in"><img src="https://play-lh.googleusercontent.com/gis7GzwsTDqb98ucn_xNQVz9wQ7b-6WgFQNh_qaHbBF-9VtMhdkcG7CpmAoBdtWPOimL3JK0X3dC2Ea3DS2K=h1000" alt="Gameplay screenshot" loading="lazy" data-gallery="arrowsp" data-index="2" style="cursor:zoom-in"></div>
+    <div class="code-row">
+      <pre class="code"><span class="k">public</span> <span class="k">enum</span> ArrowPattern { Random, Spiral, Wave }
 
+<span class="c">// -----------------------------------------------------------------</span>
+<span class="c">// Fills whatever a pattern didn&#x27;t cover (e.g. Spiral&#x27;s layer limit)</span>
+<span class="c">// so the rest still gets a proper, solvable layout.</span>
+<span class="c">// Safe by construction: this region&#x27;s arrows are only ever appended</span>
+<span class="c">// AFTER the pattern&#x27;s own arrows, so by the time any of these need</span>
+<span class="c">// to escape, everything the pattern covered is already gone - the</span>
+<span class="c">// random carve only has to worry about cells within this region.</span>
+<span class="c">// -----------------------------------------------------------------</span>
+<span class="k">private</span> List&lt;SavedArrow&gt; FillRemainderRandom(HashSet&lt;Vector2Int&gt; region)
+{
+    <span class="k">if</span> (region.Count == <span class="n">0</span>) <span class="k">return</span> <span class="k">new</span> List&lt;SavedArrow&gt;();
+
+    <span class="t">int</span> minTail = GetMinTailLength(levelDifficulty);
+    <span class="t">int</span> maxTail = overrideMaxArrowLength
+        ? Mathf.Max(minTail, customMaxArrowLength)
+        : GetMaxTailLength(levelDifficulty);
+    <span class="t">float</span> turnChance = GetTurnChance(levelDifficulty);
+
+    List&lt;SavedArrow&gt; best = <span class="k">null</span>;
+    <span class="t">int</span> bestScore = <span class="t">int</span>.MinValue;
+    <span class="k">var</span> sw = System.Diagnostics.Stopwatch.StartNew();
+    <span class="t">int</span> tries = <span class="n">0</span>, good = <span class="n">0</span>;
+
+    <span class="c">// Carve candidates within a fixed attempt + time budget,</span>
+    <span class="c">// keep the hardest board instead of searching forever.</span>
+    <span class="k">while</span> (good &lt; candidateBoards &amp;&amp; tries &lt; maxCarveAttempts
+           &amp;&amp; sw.Elapsed.TotalSeconds &lt; timeBudgetSeconds)
+    {
+        tries++;
+        <span class="k">var</span> arrows = CarveSolvableBoard(region, maxTail, turnChance);
+        <span class="k">if</span> (arrows == <span class="k">null</span>) <span class="k">continue</span>;
+        good++;
+        <span class="t">int</span> score = ScoreBoardDifficultyFast(arrows, <span class="k">out</span> _, <span class="k">out</span> _);
+        <span class="k">if</span> (score &gt; bestScore) { bestScore = score; best = arrows; }
+    }
+    <span class="k">return</span> best;
+}
+</pre>
+      <div class="arch">
+        <h4>CODE ARCHITECTURE</h4>
+        <ul>
+          <li><b>Solvable by Construction:</b> Levels are carved so every arrow has a guaranteed escape order the moment it is placed. Solvability is built in rather than checked afterwards with an expensive search.</li>
+          <li><b>Time-Budgeted Generation:</b> The generator carves several candidate boards within a fixed attempt and time budget, scores each for difficulty and keeps the hardest. 30x30 boards that used to freeze the editor for 30+ minutes now generate reliably.</li>
+          <li><b>Extensible Pattern System:</b> Random, Spiral and Wave layouts share one pipeline. A new pattern needs one enum case and one method, and it inherits the solvability guarantee automatically.</li>
+          <li><b>Difficulty Without Shortcuts:</b> Every arrow keeps at least one body segment and the generator rewards inward and outward turns, so levels stay hard instead of collapsing into arrows that all point the same way.</li>
+          <li><b>Regression-Tested Tooling:</b> Generator changes were verified against a 160-case regression suite, including extreme aspect ratios like 50x4 and 4x50 boards.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="store"><a class="btn" href="https://play.google.com/store/apps/details?id=arrowzen.ggg" target="_blank" rel="noopener">GET IT ON GOOGLE PLAY</a></div>
+  </section>
 </main>
+<div class="lightbox" id="lightbox"><button class="close" aria-label="Close">&times;</button><button class="prev" aria-label="Previous">&#8249;</button><img alt=""><button class="next" aria-label="Next">&#8250;</button></div>
+<script>window.GALLERIES = {"arrowsp": ["https://play-lh.googleusercontent.com/zQtDZ_4qAdUF8sZp37XnxVtpjZ6GTa9t8e3VWW82_GIs4Q7XB0joc90m7Af9m92NFjr0TAKne4ePJfR5J8AN=h1000", "https://play-lh.googleusercontent.com/EifE-4Ii6IIx_hZWo9ClqXYDCPmf-i0jC_F2myuN45hHF_jqSNSZBkQb1jAvLMgPLnB4QtDHl3JbuC0pPROjnA=h1000", "https://play-lh.googleusercontent.com/gis7GzwsTDqb98ucn_xNQVz9wQ7b-6WgFQNh_qaHbBF-9VtMhdkcG7CpmAoBdtWPOimL3JK0X3dC2Ea3DS2K=h1000"]};</script>
+<script>
+(function () {
+  var lb = document.getElementById('lightbox'), img = lb.querySelector('img'), list = [], i = 0;
+  function show() { img.src = list[i]; lb.classList.add('open'); }
+  function open(name, idx) { list = window.GALLERIES[name] || []; if (!list.length) return; i = idx || 0; show(); }
+  document.querySelectorAll('[data-gallery]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); open(el.dataset.gallery, +el.dataset.index); });
+  });
+  lb.querySelector('.close').onclick = function () { lb.classList.remove('open'); };
+  lb.querySelector('.prev').onclick = function (e) { e.stopPropagation(); i = (i + list.length - 1) % list.length; show(); };
+  lb.querySelector('.next').onclick = function (e) { e.stopPropagation(); i = (i + 1) % list.length; show(); };
+  lb.onclick = function (e) { if (e.target === lb) lb.classList.remove('open'); };
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lb.classList.remove('open');
+    if (e.key === 'ArrowRight') lb.querySelector('.next').click();
+    if (e.key === 'ArrowLeft') lb.querySelector('.prev').click();
+  });
+})();
+</script>
 </body>
 </html>

@@ -4,51 +4,159 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Carrom Reloaded | Anish Singha</title>
-<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems, tools and shipped games on Steam and Google Play.">
+<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems and shipped games on Steam and Google Play.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<aside class="sidebar">
-  <p class="name">Anish<br>Singha</p>
-  <p class="role">Game Programmer</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <span class="nav-group-label">Projects</span>
-    <div class="sub">
-        <a href="set-7.html">Set-7</a>
-        <a href="carrom-reloaded.html" class="active">Carrom Reloaded</a>
-        <a href="arrows-zen-puzzle.html">Arrows: Zen Puzzle</a>
-        <a href="the-long-way-round.html">The Long Way Round</a>
-        <a href="bubble-gravity.html">Bubble Gravity</a>
-    </div>
-    <a href="resume.html">Resume</a>
-  </nav>
-  <div class="contact"><a href="mailto:anishsingha28@gmail.com">anishsingha28@gmail.com</a></div>
-</aside>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="name">ANISH SINGHA</span><span class="role">Game Programmer</span></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <div class="dd active" tabindex="0"><span>Projects</span>
+        <div class="menu">
+          <a href="set-7.html">Set-7</a>
+          <a href="carrom-reloaded.html">CarromReloaded</a>
+          <a href="arrows-zen-puzzle.html">Arrows: Zen Puzzle</a>
+          <a href="the-long-way-round.html">The Long Way Round</a>
+          <a href="bubble-gravity.html">Bubble Gravity</a>
+        </div>
+      </div>
+      <a href="resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
 <main>
-  <div class="summary">
-    <div>
-      <p class="label">Game Summary</p>
-      <p>Carrom Reloaded is a game made within 2 days for the event BYOG 2025 on the topic RE:{THINK, MIX, MAKE}. In this game instead of using striker, we drag and launch the board to move the pieces around and secure the carrom coins.</p>
+  <section class="panel">
+    <h1 class="outline-title page-title">CARROM RELOADED</h1>
+    <div class="media"><video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/f1ab6a_90db01f4cdae4f87a8290611762a0e9ef000.jpg"><source src="https://video.wixstatic.com/video/f1ab6a_90db01f4cdae4f87a8290611762a0e9e/720p/mp4/file.mp4" type="video/mp4"></video></div>
+    <hr class="rule">
+    <p class="meta"><b>Role :</b> Game Programmer | <b>Genre :</b> Casual | <b>Platform :</b> PC/Mobile | <b>Time :</b> 2 Days | <b>Engine :</b> Unity 6</p>
+  </section>
+  <section class="panel">
+    <div class="summary">
+      <h4>GAME SUMMARY</h4>
+      <p><b>Carrom Reloaded</b> is a game made within 2 days for the event BYOG 2025 on the topic RE:{THINK, MIX, MAKE}. In this game instead of using striker, we drag and launch the board to move the pieces around and secure the carrom coins.</p>
     </div>
-    <img class="feature" src="https://static.wixstatic.com/media/f1ab6a_78ea7998202c4130874409d6e778e2df~mv2.png" alt="Carrom Reloaded">
-  </div>
-  <div class="media-strip wide"><img src="https://static.wixstatic.com/media/f1ab6a_90db01f4cdae4f87a8290611762a0e9ef000.jpg" alt="Carrom Reloaded gameplay" loading="lazy"><img src="https://static.wixstatic.com/media/f1ab6a_6e58f5f79b6d4674a3e39de34c704a0cf000.jpg" alt="Carrom Reloaded gameplay" loading="lazy"></div>
-  <h1 class="game-title">Carrom Reloaded</h1>
-  <p class="label">Code Architecture</p>
-  <div class="architecture">
-    <ul>
-      <li><b>Single Responsibility Principle:</b> The EndTurnSequence no longer tries to calculate how the rules work; it just asks EvaluateTurnRules() what happens next and routes the game state accordingly. This is much easier to read and debug.</li>
-      <li><b>Self-Documenting Code:</b> By creating boolean methods like HasValidCoverPiece() and ResolveQueenCoverAttempt(), the code reads like plain English. A recruiter or lead programmer does not need to decipher nested if/else statements to understand the flow.</li>
-      <li><b>Scalable Architecture:</b> Adding a new game mode (like a time-attack mode) or tweaking the rules based on playtesting feedback only requires modifying the isolated rule-checking methods rather than tearing apart the entire sequence coroutine.</li>
-      <li><b>Modular Edge-Case Handling:</b> The logic handles the specific edge case of pocketing the Queen and a cover piece in the exact same shot without duplicating code, relying strictly on the HasValidCoverPiece() check.</li>
-    </ul>
-  </div>
-  <p class="meta">Role : Game Programmer | Genre : Casual | Platform : PC/Mobile | Time : 2 Days | Engine : Unity 6</p>
+    <div class="gameplay"><div class="media"><video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/f1ab6a_6e58f5f79b6d4674a3e39de34c704a0cf000.jpg"><source src="https://video.wixstatic.com/video/f1ab6a_6e58f5f79b6d4674a3e39de34c704a0c/720p/mp4/file.mp4" type="video/mp4"></video></div></div>
+    <div class="code-row">
+      <pre class="code"><span class="k">private</span> IEnumerator EndTurnSequence()
+{
+    <span class="k">yield</span> <span class="k">return</span> StartCoroutine(RecenterCameraCoroutine(boardRigidbody.position));
 
+    <span class="t">bool</span> earnsAnotherTurn = EvaluateTurnRules();
+
+    <span class="k">if</span> (currentMode == GameMode.LevelBased &amp;&amp; !earnsAnotherTurn)
+    {
+        CheckLevelEndConditions();
+    }
+    <span class="k">else</span> <span class="k">if</span> (currentMode == GameMode.PVP)
+    {
+        <span class="k">if</span> (CheckPVPWinConditions()) <span class="k">yield</span> <span class="k">break</span>;
+
+        <span class="k">if</span> (earnsAnotherTurn) EnterAimingState();
+        <span class="k">else</span> SwitchTurn();
+    }
+    <span class="k">else</span>
+    {
+        EnterAimingState();
+    }
+}
+
+<span class="k">private</span> <span class="t">bool</span> EvaluateTurnRules()
+{
+    <span class="k">if</span> (isAwaitingQueenCover) <span class="k">return</span> ResolveQueenCoverAttempt();
+    <span class="k">if</span> (queenPocketedThisTurn) <span class="k">return</span> HandleQueenPocketed();
+
+    <span class="k">return</span> currentMode == GameMode.PVP ? pocketedOwnPieceThisTurn : <span class="k">false</span>;
+}
+
+<span class="k">private</span> <span class="t">bool</span> HandleQueenPocketed()
+{
+    isAwaitingQueenCover = <span class="k">true</span>;
+    <span class="k">if</span> (currentMode == GameMode.PVP) queenPocketedBy = currentPlayer;
+
+    <span class="k">if</span> (HasValidCoverPiece())
+    {
+        ConfirmQueenCovered();
+        <span class="k">return</span> <span class="k">true</span>;
+    }
+
+    <span class="k">return</span> <span class="k">true</span>;
+}
+
+<span class="k">private</span> <span class="t">bool</span> ResolveQueenCoverAttempt()
+{
+    <span class="t">bool</span> isCurrentPlayersCoverAttempt = (currentMode == GameMode.LevelBased) ||
+                                        (currentMode == GameMode.PVP &amp;&amp; currentPlayer == queenPocketedBy);
+
+    <span class="k">if</span> (!isCurrentPlayersCoverAttempt) <span class="k">return</span> <span class="k">false</span>;
+
+    <span class="k">if</span> (HasValidCoverPiece())
+    {
+        ConfirmQueenCovered();
+        <span class="k">return</span> <span class="k">true</span>;
+    }
+
+    isAwaitingQueenCover = <span class="k">false</span>;
+    StartCoroutine(ResetQueenCoroutine());
+    <span class="k">return</span> <span class="k">false</span>;
+}
+
+<span class="k">private</span> <span class="t">bool</span> HasValidCoverPiece()
+{
+    <span class="k">return</span> (currentMode == GameMode.LevelBased &amp;&amp; pocketedAnyPieceThisTurn) ||
+           (currentMode == GameMode.PVP &amp;&amp; pocketedOwnPieceThisTurn);
+}
+
+<span class="k">private</span> <span class="k">void</span> ConfirmQueenCovered()
+{
+    queenIsCovered = <span class="k">true</span>;
+    isAwaitingQueenCover = <span class="k">false</span>;
+
+    <span class="k">if</span> (currentMode == GameMode.PVP)
+    {
+        <span class="k">if</span> (queenPocketedBy == PlayerTurn.White) whiteScore += <span class="n">2</span>;
+        <span class="k">else</span> blackScore += <span class="n">2</span>;
+    }
+}
+</pre>
+      <div class="arch">
+        <h4>CODE ARCHITECTURE</h4>
+        <ul>
+          <li><b>Single Responsibility Principle:</b> The EndTurnSequence no longer tries to calculate how the rules work; it just asks EvaluateTurnRules() what happens next and routes the game state accordingly. This is much easier to read and debug.</li>
+          <li><b>Self-Documenting Code:</b> By creating boolean methods like HasValidCoverPiece() and ResolveQueenCoverAttempt(), the code reads like plain English. A recruiter or lead programmer does not need to decipher nested if/else statements to understand the flow.</li>
+          <li><b>Scalable Architecture:</b> If you decide to add a new game mode (like a time-attack mode) or tweak the rules based on future playtesting feedback, you only have to modify the isolated rule-checking methods rather than tearing apart the entire sequence coroutine.</li>
+          <li><b>Modular Edge-Case Handling:</b> The logic elegantly handles the specific edge case of "pocketing the Queen and a cover piece in the exact same shot" without duplicating code, relying strictly on the HasValidCoverPiece() check.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </main>
+<div class="lightbox" id="lightbox"><button class="close" aria-label="Close">&times;</button><button class="prev" aria-label="Previous">&#8249;</button><img alt=""><button class="next" aria-label="Next">&#8250;</button></div>
+<script>window.GALLERIES = {};</script>
+<script>
+(function () {
+  var lb = document.getElementById('lightbox'), img = lb.querySelector('img'), list = [], i = 0;
+  function show() { img.src = list[i]; lb.classList.add('open'); }
+  function open(name, idx) { list = window.GALLERIES[name] || []; if (!list.length) return; i = idx || 0; show(); }
+  document.querySelectorAll('[data-gallery]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); open(el.dataset.gallery, +el.dataset.index); });
+  });
+  lb.querySelector('.close').onclick = function () { lb.classList.remove('open'); };
+  lb.querySelector('.prev').onclick = function (e) { e.stopPropagation(); i = (i + list.length - 1) % list.length; show(); };
+  lb.querySelector('.next').onclick = function (e) { e.stopPropagation(); i = (i + 1) % list.length; show(); };
+  lb.onclick = function (e) { if (e.target === lb) lb.classList.remove('open'); };
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lb.classList.remove('open');
+    if (e.key === 'ArrowRight') lb.querySelector('.next').click();
+    if (e.key === 'ArrowLeft') lb.querySelector('.prev').click();
+  });
+})();
+</script>
 </body>
 </html>

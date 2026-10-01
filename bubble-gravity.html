@@ -4,53 +4,121 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bubble Gravity | Anish Singha</title>
-<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems, tools and shipped games on Steam and Google Play.">
+<meta name="description" content="Anish Singha, Game Programmer. Unity gameplay systems and shipped games on Steam and Google Play.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<aside class="sidebar">
-  <p class="name">Anish<br>Singha</p>
-  <p class="role">Game Programmer</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <span class="nav-group-label">Projects</span>
-    <div class="sub">
-        <a href="set-7.html">Set-7</a>
-        <a href="carrom-reloaded.html">Carrom Reloaded</a>
-        <a href="arrows-zen-puzzle.html">Arrows: Zen Puzzle</a>
-        <a href="the-long-way-round.html">The Long Way Round</a>
-        <a href="bubble-gravity.html" class="active">Bubble Gravity</a>
-    </div>
-    <a href="resume.html">Resume</a>
-  </nav>
-  <div class="contact"><a href="mailto:anishsingha28@gmail.com">anishsingha28@gmail.com</a></div>
-</aside>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="name">ANISH SINGHA</span><span class="role">Game Programmer</span></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <div class="dd active" tabindex="0"><span>Projects</span>
+        <div class="menu">
+          <a href="set-7.html">Set-7</a>
+          <a href="carrom-reloaded.html">CarromReloaded</a>
+          <a href="arrows-zen-puzzle.html">Arrows: Zen Puzzle</a>
+          <a href="the-long-way-round.html">The Long Way Round</a>
+          <a href="bubble-gravity.html">Bubble Gravity</a>
+        </div>
+      </div>
+      <a href="resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
 <main>
-  <div class="summary">
-    <div>
-      <p class="label">Game Summary</p>
-      <p>Bubble Gravity is a bubble shooter set in an alchemist's workshop, built around one new idea: gravity zones that pull every shot left, right, up or down. Players bank shots through the zones to match colours, collect gems and clear the board, with five power-ups and 30 levels that ramp from tutorial to expert.</p>
+  <section class="panel">
+    <h1 class="outline-title page-title">BUBBLE GRAVITY</h1>
+    <div class="media bordered frame phone"><img class="bg" src="images/bg-title.png" alt=""><img class="fg" src="images/bg-title.png" alt="Bubble Gravity title screen"></div>
+    <hr class="rule">
+    <p class="meta"><b>Role :</b> Game Programmer | <b>Genre :</b> Puzzle / Bubble Shooter | <b>Platform :</b> Mobile | <b>Engine :</b> Unity</p>
+  </section>
+  <section class="panel">
+    <div class="summary">
+      <h4>GAME SUMMARY</h4>
+      <p><b>Bubble Gravity</b> is a bubble shooter set in an alchemist's workshop, built around one new idea: gravity zones that pull every shot left, right, up or down. Players bank shots through the zones to match colours, collect gems and clear the board, with five power-ups and 30 levels that ramp from tutorial to expert.</p>
     </div>
-    <img class="feature phone" src="images/bg-title.png" alt="Bubble Gravity">
-  </div>
-  <div class="media-strip phones"><img src="images/bg-1.png" alt="Bubble Gravity gameplay" loading="lazy"><img src="images/bg-2.png" alt="Bubble Gravity gameplay" loading="lazy"><img src="images/bg-3.png" alt="Bubble Gravity gameplay" loading="lazy"></div>
-  <h1 class="game-title">Bubble Gravity</h1>
-  <p class="label">Code Architecture</p>
-  <div class="architecture">
-    <ul>
-      <li><b>One Shared Physics Simulation:</b> The real shot, the curved aim line, the Aim Hint power-up and the balancing bot all run the same gravity-zone simulation, so the aim preview always matches what the shot actually does.</li>
-      <li><b>Bot-Driven Balancing:</b> A bot plays every level 30+ times, reports a win rate, and automatically sets the shot count and star score thresholds. The 30 levels ramp from about a 97% bot win rate down to 53%.</li>
-      <li><b>Pluggable Power-Ups:</b> Each power-up is a ScriptableObject asset. New effects implement an IPowerUpEffectHandler interface and appear in the shop and in-level tray automatically.</li>
-      <li><b>Custom Level Editor:</b> An editor window with colour brushes, flood fill, mirroring, gravity-zone editing, live test shots and batch generation across 12 shapes, 6 colouring styles and 11 zone presets.</li>
-      <li><b>SDK-Safe Builds:</b> Scripting defines detect LevelPlay ads, Cloud Save and Google Play Games. Without them, ads are simulated and saves stay offline, so the project always compiles.</li>
-      <li><b>Tested Core Rules:</b> The matching and dropping rules are covered by 20 unit tests, and all scripts compile cleanly with SDKs on, off, and alongside the editor tools.</li>
-    </ul>
-  </div>
-  <p class="meta">Role : Game Programmer | Genre : Puzzle / Bubble Shooter | Platform : Mobile | Engine : Unity</p>
+    <div class="phones"><img src="images/bg-1.png" alt="Gameplay screenshot" loading="lazy" data-gallery="bubblep" data-index="0" style="cursor:zoom-in"><img src="images/bg-2.png" alt="Gameplay screenshot" loading="lazy" data-gallery="bubblep" data-index="1" style="cursor:zoom-in"><img src="images/bg-3.png" alt="Gameplay screenshot" loading="lazy" data-gallery="bubblep" data-index="2" style="cursor:zoom-in"></div>
+    <div class="code-row">
+      <pre class="code"><span class="k">public</span> <span class="k">enum</span> PowerUpEffectType
+{
+    Undefined,
+    AimHint,        <span class="c">// shows the best shot + the FULL bending path</span>
+    Bomb,           <span class="c">// loads a bomb bubble that clears everything around its impact</span>
+    Rainbow,        <span class="c">// loads a rainbow bubble that matches every colour it touches</span>
+    ExtraShots,     <span class="c">// +effectValue shots immediately</span>
+    AntiGravity     <span class="c">// gravity zones are switched off for the next shot</span>
+}
 
+<span class="c">// One asset per power-up. Duplicate one, give it a new id + effect</span>
+<span class="c">// and it appears in the Shop and the in-level tray automatically.</span>
+[CreateAssetMenu(fileName = <span class="s">&quot;PowerUp_&quot;</span>, menuName = <span class="s">&quot;Bubble Gravity/Power-Up Definition&quot;</span>)]
+<span class="k">public</span> <span class="k">class</span> PowerUpDefinition : ScriptableObject
+{
+    [Tooltip(<span class="s">&quot;Stable unique id used for save data and lookups.&quot;</span>)]
+    <span class="k">public</span> <span class="t">string</span> powerUpId;
+    <span class="k">public</span> <span class="t">string</span> displayName;
+    [TextArea] <span class="k">public</span> <span class="t">string</span> description;
+    <span class="k">public</span> Sprite icon;
+
+    [Header(<span class="s">&quot;Economy&quot;</span>)]
+    <span class="k">public</span> <span class="t">int</span> coinCost = <span class="n">100</span>;
+    <span class="k">public</span> <span class="t">int</span> startingAmount = <span class="n">1</span>;
+
+    [Header(<span class="s">&quot;Availability&quot;</span>)]
+    <span class="k">public</span> <span class="t">bool</span> availableInLevel = <span class="k">true</span>;
+    <span class="k">public</span> <span class="t">bool</span> availableInShop = <span class="k">true</span>;
+    <span class="k">public</span> <span class="t">bool</span> showInTray = <span class="k">true</span>;
+    <span class="k">public</span> <span class="t">int</span> unlockLevel = <span class="n">1</span>;
+
+    [Header(<span class="s">&quot;Effect&quot;</span>)]
+    <span class="k">public</span> PowerUpEffectType effectType = PowerUpEffectType.Undefined;
+    <span class="k">public</span> <span class="t">float</span> effectValue;
+}
+
+<span class="c">// Implement on a MonoBehaviour to add a new power-up effect.</span>
+<span class="k">public</span> <span class="k">interface</span> IPowerUpEffectHandler
+{
+    PowerUpEffectType EffectType { <span class="k">get</span>; }
+}
+</pre>
+      <div class="arch">
+        <h4>CODE ARCHITECTURE</h4>
+        <ul>
+          <li><b>One Shared Physics Simulation:</b> The real shot, the curved aim line, the Aim Hint power-up and the balancing bot all run the same gravity-zone simulation, so the aim preview always matches the actual shot.</li>
+          <li><b>Bot-Driven Balancing:</b> A bot plays every level 30+ times, reports a win rate and automatically sets shot counts and star thresholds. The 30 levels ramp from about 97% bot win rate down to 53%.</li>
+          <li><b>Pluggable Power-Ups:</b> Each power-up is a ScriptableObject asset. New effects implement IPowerUpEffectHandler and appear in the shop and in-level tray automatically.</li>
+          <li><b>Custom Level Editor:</b> Colour brushes, flood fill, mirroring, gravity-zone editing, live test shots and batch generation across 12 shapes, 6 colouring styles and 11 zone presets.</li>
+          <li><b>SDK-Safe Builds:</b> Scripting defines detect LevelPlay, Cloud Save and Google Play Games. Without them, ads are simulated and saves stay offline, so the project always compiles.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </main>
+<div class="lightbox" id="lightbox"><button class="close" aria-label="Close">&times;</button><button class="prev" aria-label="Previous">&#8249;</button><img alt=""><button class="next" aria-label="Next">&#8250;</button></div>
+<script>window.GALLERIES = {"bubblep": ["images/bg-1.png", "images/bg-2.png", "images/bg-3.png"]};</script>
+<script>
+(function () {
+  var lb = document.getElementById('lightbox'), img = lb.querySelector('img'), list = [], i = 0;
+  function show() { img.src = list[i]; lb.classList.add('open'); }
+  function open(name, idx) { list = window.GALLERIES[name] || []; if (!list.length) return; i = idx || 0; show(); }
+  document.querySelectorAll('[data-gallery]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); open(el.dataset.gallery, +el.dataset.index); });
+  });
+  lb.querySelector('.close').onclick = function () { lb.classList.remove('open'); };
+  lb.querySelector('.prev').onclick = function (e) { e.stopPropagation(); i = (i + list.length - 1) % list.length; show(); };
+  lb.querySelector('.next').onclick = function (e) { e.stopPropagation(); i = (i + 1) % list.length; show(); };
+  lb.onclick = function (e) { if (e.target === lb) lb.classList.remove('open'); };
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lb.classList.remove('open');
+    if (e.key === 'ArrowRight') lb.querySelector('.next').click();
+    if (e.key === 'ArrowLeft') lb.querySelector('.prev').click();
+  });
+})();
+</script>
 </body>
 </html>
